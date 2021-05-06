@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture index{% endblock %}
+
+{% block body %}
+    <h1>Facture</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date facture</th>
+               
+                <th>Paiement</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.dateFact ? facture.dateFact|date('Y-m-d') : '' }}</td>
+               
+                
+                <td>{{ facture.paiment }}</td>
+                <td>{{ facture.commandes.total }}</td>
+                <td>
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('facture_new') }}" class="btn btn-warning"> Ajouter une nouvelle facture</a><br> 
+    <br>
+ <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Veuillez cliquer sur ce lien  pour remplir le bon de livraison de votre facture</strong>  <a href="{{ path('livraison_new') }}" class="alert-link">Cliquer ici</a>
+</div><br>   
+ <div class="alert alert-dismissible alert-primary">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Veuillez cliquer sur ce lien  pour enregistrer les informations de paiement de facture:</strong> <a href="{{ path('paiment_new') }}" class="alert-link">Cliquer ici</a> 
+</div>
+
+
+
+    
+
+
+{% endblock %}

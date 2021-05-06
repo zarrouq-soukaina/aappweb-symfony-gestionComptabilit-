@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandevente index{% endblock %}
+
+{% block body %}
+    <h1>Commande de vente</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date Vente</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commandevente in commandeventes %}
+            <tr>
+                <td>{{ commandevente.id }}</td>
+                <td>{{ commandevente.DateVente ? commandevente.DateVente|date('Y-m-d') : '' }}</td>
+                <td>{{ commandevente.total }}</td>
+                <td>
+                    <a href="{{ path('commandevente_show', {'id': commandevente.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('commandevente_edit', {'id': commandevente.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ 
+
+    <a href="{{ path('commandevente_new') }}" class="btn btn-warning" >Ajouter une nouvelle commande</a><br>
+      <br>
+ <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> Veuillez cliquer sur ce lien  pour remplir la facture de votre commande de vente:</strong>  <a href="{{ path('facture_new') }}" class="alert-link">Cliquer ici</a>
+</div>
+
+      
+{% endblock %}

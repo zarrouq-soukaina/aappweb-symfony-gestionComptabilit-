@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<h2> Gestion de commandes </h2>
+<table class="table">
+<thead>
+    <tr>
+     <th>
+<div class="card border-success mb-3" style="max-width: 20rem;">
+  <div class="card-header">Commande </div>
+  <div class="card-body">
+    <h4 class="card-title">Commande de vente</h4>
+    <p class="card-text">Veuillez cliquer sur le lien ci-dessous pour affectuer une commande de vente:.
+    <a class="nav-link" href="{{ path('commandevente_index') }}">cliquer ici</a></p>
+    
+  </div>
+</div>
+</th>
+<th>
+<div class="card border-success mb-3" style="max-width: 20rem;">
+  <div class="card-header">Commande </div>
+  <div class="card-body">
+    <h4 class="card-title">Commande d'achat</h4>
+    <p class="card-text">Veuillez cliquer sur le lien ci-dessous pour affectuer une commande d'achat:.
+    <a class="nav-link" href="{{ path('commandeachat_index') }}">cliquer ici</a></p>
+    
+  </div>
+</div>
+</th>
+  </tr>
+     </thead>
+</table>
+{% endblock %}

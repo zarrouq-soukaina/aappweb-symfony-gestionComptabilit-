@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseur index{% endblock %}
+
+{% block body %}
+    <h1>Liste des fournisseurs </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Type</th>
+                <th>Adresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td>{{ fournisseur.id }}</td>
+                <td>{{ fournisseur.Nom }}</td>
+                <td>{{ fournisseur.Prenom }}</td>
+                <td>{{ fournisseur.Type }}</td>
+                <td>{{ fournisseur.adresse }}</td>
+                <td>
+                    <a href="{{ path('fournisseur_show', {'id': fournisseur.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('fournisseur_new') }}" class="btn btn-warning" >ajouter un nouveau fournisseur</a><br>
+             <br>
+ <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> Veuillez cliquer sur ce lien  effectuer commande d'achat:</strong>  <a href="{{ path('commandeachat_new') }}" class="alert-link">Cliquer ici</a>
+</div>
+{% endblock %}

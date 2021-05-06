@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Caisse{% endblock %}
+
+{% block body %}
+    <h1> Caisse</h1>
+
+    {{ include('caisse/_form.html.twig') }}
+
+    <a href="{{ path('caisse_index') }}">back to list</a>
+{% endblock %}

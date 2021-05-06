@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des dépenses{% endblock %}
+
+{% block body %}
+    <h1>Dépense </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Montant</th>
+                <th>Motif</th>
+                <th>Date Depense</th>
+                <th>Mode Paiement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depense in depenses %}
+            <tr>
+                <td>{{ depense.id }}</td>
+                <td>{{ depense.Montant }}</td>
+                <td>{{ depense.Motif }}</td>
+                <td>{{ depense.DateDepense ? depense.DateDepense|date('Y-m-d') : '' }}</td>
+                <td>{{ depense.modePai }}</td>
+                <td>
+                    <a href="{{ path('depense_show', {'id': depense.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('depense_edit', {'id': depense.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('depense_new') }}" class="btn btn-warning">Ajouter les informations d'une nouvelle dépense</a><br>
+    <br>
+ <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> S'il s'agit d'une dépense par chéque , veuillez cliquer sur ce lien  pour enregistrer les informations du chéque sortie:</strong>  <a href="{{ path('cheque_new') }}" class="alert-link">Cliquer ici</a>
+</div>
+
+   
+{% endblock %}

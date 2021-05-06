@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cheque index{% endblock %}
+
+{% block body %}
+    <h1>Cheque index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Beneficiare</th>
+                <th>Date</th>
+                <th>Motif</th>
+                
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cheque in cheques %}
+            <tr>
+                <td>{{ cheque.id }}</td>
+                <td>{{ cheque.beneficiare }}</td>
+                <td>{{ cheque.date ? cheque.date|date('Y-m-d') : '' }}</td>
+                <td>{{ cheque.depenses.Motif }}</td>
+                <td>
+                    <a href="{{ path('cheque_show', {'id': cheque.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('cheque_edit', {'id': cheque.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cheque_new') }}" class="btn btn-warning" >Ajouter un nouveau chéque </a>
+{% endblock %}

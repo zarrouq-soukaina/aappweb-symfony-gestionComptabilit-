@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Paiment{% endblock %}
+
+{% block body %}
+    <h1>nouveau paiment</h1>
+
+    {{ include('paiment/_form.html.twig') }}
+
+    <a href="{{ path('paiment_index') }}">Revenir à la liste des paiements</a>
+{% endblock %}

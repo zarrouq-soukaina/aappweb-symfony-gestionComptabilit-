@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caisse index{% endblock %}
+
+{% block body %}
+    <h1> La Caisse </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Montant(Dh)</th>
+                <th>Date Modification</th>
+                <th>Motif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for caisse in caisses %}
+            <tr>
+                <td>{{ caisse.id }}</td>
+                <td>{{ caisse.Montant }}</td>
+                <td>{{ caisse.dateModif ? caisse.dateModif|date('Y-m-d') : '' }}</td>
+                <td>{{ caisse.Motif }}</td>
+                <td>
+                    <a href="{{ path('caisse_show', {'id': caisse.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('caisse_edit', {'id': caisse.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('caisse_new') }}"class="btn btn-warning">Create new</a>
+{% endblock %}

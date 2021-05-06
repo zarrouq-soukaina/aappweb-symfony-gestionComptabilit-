@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Commandeachat{% endblock %}
+
+{% block body %}
+    <h1>Edit Commandeachat</h1>
+
+    {{ include('commandeachat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('commandeachat_index') }}">back to list</a>
+
+    {{ include('commandeachat/_delete_form.html.twig') }}
+{% endblock %}

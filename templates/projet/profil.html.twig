@@ -1,0 +1,56 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<table class="table">
+       
+            <tr>
+             <td><img width="100px" height="100px" src="{{ asset('logo/caisse.png') }}"  alt="caisse"/></td>
+             <td><img width="100px" height="100px" src="{{ asset('logo/produit.jpg') }}" alt="produit"/></td>
+              <td><img width="100px" height="100px" src="{{ asset('logo/client.png') }}" alt="client"/></td>
+            </tr>
+            <tr>
+            <td><a href="{{ path("caisse_index") }}"><h4>  La caisse</h4></a></td>
+   
+            <td><a href="{{ path("produit_index") }}"><h4>Produits</h4></a></td>
+             <td><a href="{{ path("client_index") }}"><h4>Client</h4></a></td>
+           
+            </tr>
+
+             <tr>
+             <td><img width="100px" height="100px" src="{{ asset('logo/fournisseur.jpg') }}" alt="fournisseur"/></td>
+            <td><img width="100px" height="100px" src="{{ asset('logo/commande.jpg') }}" alt="commande"/></td>
+            <td><img width="100px" height="100px" src="{{ asset('logo/cheque.jpg') }}" alt="cheque"/></td>
+            </tr>
+            <tr>
+            <td><a href="{{ path("fournisseur_index") }}"><h4>Fournisseurs</h4></a></td>
+            <td><a href="{{ path("commande_index") }}"><h4>Gestion de Commande</h4></a> </td>
+             <td><a href="{{ path("cheque_index") }}"><h4>Sortie de Chéques</h4></a></td>
+           
+            </tr>
+            <tr>
+             <td><img width="100px" height="100px" src="{{ asset('logo/paiement.jpg') }}" alt="paiement"/></td>
+            <td><img width="100px" height="100px" src="{{ asset('logo/facture.png') }}" alt="facture"/></td>
+            <td><img width="100px" height="100px" src="{{ asset('logo/livraison.png') }}" alt="livraison"/></td>
+            </tr>
+            <tr>
+
+            <td><a href="{{ path("paiment_index") }}"><h4>Gestion de paiement</h4></a></td>
+           <td> <a href="{{ path("facture_index") }}"><h4>Facture</h4></a></td>
+            <td><a href="{{ path("livraison_index") }}"><h4>Bon de livraison</h4></a></td>
+           
+            </tr>
+             <tr>
+            
+        <td><img width="100px" height="100px" src="{{ asset('logo/depense.png') }}" alt=""/></td>
+         </tr>
+         <tr>
+            <td><a href="{{ path("depense_index") }}"><h4>Gestion des dépenses</h4></a> </td>
+   
+           
+            </tr>
+       
+    </table>
+
+{% endblock %}

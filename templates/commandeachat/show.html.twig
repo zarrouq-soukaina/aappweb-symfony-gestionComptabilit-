@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandeachat{% endblock %}
+
+{% block body %}
+    <h1>Commande d'achat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commandeachat.id }}</td>
+            </tr>
+            <tr>
+                <th>DateAchat</th>
+                <td>{{ commandeachat.dateAchat ? commandeachat.dateAchat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>RefFacture</th>
+                <td>{{ commandeachat.refFacture }}</td>
+            </tr>
+             <tr>
+                <th>total HT</th>
+                <td>{{ commandeachat.total }}</td>
+            </tr>
+            <tr>
+                <th>tva</th>
+                <td>{{ commandeachat.tva }}</td>
+            </tr>
+            <tr>
+            <th> Fournisseur</th>
+            <td>{{ commandeachat.fournisseurs.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('commandeachat_index') }}"  class="btn btn-warning" >Revenir à la liste des commandes</a><br>
+
+    <a href="{{ path('commandeachat_edit', {'id': commandeachat.id}) }}" class="btn btn-info"  >Modifier</a>
+
+    {{ include('commandeachat/_delete_form.html.twig') }}
+{% endblock %}

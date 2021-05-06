@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cheque{% endblock %}
+
+{% block body %}
+    <h1>Chèque</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cheque.id }}</td>
+            </tr>
+            <tr>
+                <th>Beneficiare</th>
+                <td>{{ cheque.beneficiare }}</td>
+            </tr>
+            <tr>
+                <th>Date de sortie de chéque</th>
+                <td>{{ cheque.date ? cheque.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            
+             <tr>
+            <th>Motif</th>
+            <td>{{ cheque.depenses.Motif }}</td>
+            </tr>
+            <tr>
+            <th>Montant</th>
+            <td>{{ cheque.depenses.Montant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('cheque_index') }}"  class="btn btn-warning" >Revenir à la liste des chéques</a><br>
+
+    <a href="{{ path('cheque_edit', {'id': cheque.id}) }}"  class="btn btn-info">Modifier</a>
+
+    {{ include('cheque/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiment index{% endblock %}
+
+{% block body %}
+    <h1>Gestion de paiement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date de paiement</th>
+                <th>Mantant restant</th>
+                <th>Montant payé</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paiment in paiments %}
+            <tr>
+                <td>{{ paiment.id }}</td>
+                <td>{{ paiment.datepai ? paiment.datepai|date('Y-m-d') : '' }}</td>
+                <td>{{ paiment.mantantRest }}</td>
+                <td>{{ paiment.montantpay }}</td>
+                <td>
+                    <a href="{{ path('paiment_show', {'id': paiment.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('paiment_edit', {'id': paiment.id}) }}"class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('paiment_new') }}" class="btn btn-warning">Ajouter un nouveau paiement</a>
+{% endblock %}

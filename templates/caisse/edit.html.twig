@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Caisse{% endblock %}
+
+{% block body %}
+    <h1>Edit Caisse</h1>
+
+    {{ include('caisse/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('caisse_index') }}">back to list</a>
+
+    {{ include('caisse/_delete_form.html.twig') }}
+{% endblock %}

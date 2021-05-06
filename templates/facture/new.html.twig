@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle facture</h1>
+    <h5><u><FONT color="red"> La facture peut être payée en espèce que si le montant ne dépasse pas 6000dh </FONT> </u></h5>
+
+    {{ include('facture/_form.html.twig') }}
+
+    <a href="{{ path('facture_index') }}">Revenir à la liste des factures</a>
+{% endblock %}

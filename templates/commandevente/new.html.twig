@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Commandevente{% endblock %}
+
+{% block body %}
+    <h2>ajouter une commande de vente</h2>
+
+    {{ include('commandevente/_form.html.twig') }}
+
+    <a href="{{ path('commandevente_index')}}" class="btn btn-warning">Revenir à la liste des commandes de vente</a>
+{% endblock %}

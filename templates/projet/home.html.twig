@@ -1,0 +1,21 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="jumbotron">
+  <h2 class="display-3">ComptApp</h2>
+  <p class="lead">L'application qui vous facilitera la gestion de vos transactions .</p>
+  <hr class="my-4">
+  <p>vous êtes nouveau ici ? inscriez-vous ici:.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ path('security_registration') }}" role="button">S'inscrire</a>
+  </p>
+  <p>Vous avez déja un compte ? Connectez-vous  ici:</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ path('security_login') }}" role="button">Se connecter</a>
+  </p>
+</div>
+
+{% endblock %}

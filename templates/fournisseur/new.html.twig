@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>ajouter un nouveau fournisseur</h1>
+
+    {{ include('fournisseur/_form.html.twig') }}
+
+    <a href="{{ path('fournisseur_index') }}">Revenir à la liste des fournisseurs</a>
+{% endblock %}

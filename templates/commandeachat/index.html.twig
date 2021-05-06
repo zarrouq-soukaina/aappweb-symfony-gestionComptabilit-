@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandeachat index{% endblock %}
+
+{% block body %}
+    <h1>Commande d'achat </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date Achat</th>
+                <th>RefFacture</th>
+                <th>total HT</th>
+                <th>tva</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commandeachat in commandeachats %}
+            <tr>
+                <td>{{ commandeachat.id }}</td>
+                <td>{{ commandeachat.dateAchat ? commandeachat.dateAchat|date('Y-m-d') : '' }}</td>
+                <td>{{ commandeachat.refFacture }}</td>
+                <td>{{ commandeachat.total }}</td>
+                 <td>{{ commandeachat.tva }}</td>
+                <td>
+                    <a href="{{ path('commandeachat_show', {'id': commandeachat.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('commandeachat_edit', {'id': commandeachat.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('commandeachat_new') }}" class="btn btn-warning">Ajouter une nouvelle commande</a>
+{% endblock %}

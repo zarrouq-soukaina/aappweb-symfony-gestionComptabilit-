@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <h1>Liste des clients</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.Nom }}</td>
+                <td>{{ client.Prenom }}</td>
+                <td>{{ client.Adresse }}</td>
+                <td>{{ client.Type }}</td>
+                <td>
+                    <a href="{{ path('client_show', {'id': client.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('client_edit', {'id': client.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('client_new') }}" class="btn btn-warning">Ajouter un nouveau client</a><br>
+          <br>
+ <div class="alert alert-dismissible alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> Veuillez cliquer sur ce lien  effectuer commande de vente:</strong>  <a href="{{ path('commandevente_new') }}" class="alert-link">Cliquer ici</a>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Depense{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle dépense</h1>
+
+    {{ include('depense/_form.html.twig') }}
+
+    <a href="{{ path('depense_index') }}">Revenir àla liste des dépenses</a>
+{% endblock %}
